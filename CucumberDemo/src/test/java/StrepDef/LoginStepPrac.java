@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
@@ -25,7 +26,10 @@ public class LoginStepPrac {
 
     @Before("@EdgeBrowser")
     public void setUpEdge() {
-        driver = new EdgeDriver();
+        EdgeOptions options = new EdgeOptions();
+        options.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
+        options.addArguments("--headless=new");
+        driver = new EdgeDriver(options);
     }
 
     @After

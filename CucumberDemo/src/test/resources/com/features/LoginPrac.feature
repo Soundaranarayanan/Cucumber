@@ -15,7 +15,7 @@ Feature: SauceDemo Login Feature
   @FireFoxBrowser
   @InValidCredentialsWithBlankUsername
   Scenario: To test Login features with blank username
-    When the user provides the blank username
+    When the user provides the blank username 
     And the user provides the valid password
     And the user clicks the login button
     Then the user is able to visible the error message
