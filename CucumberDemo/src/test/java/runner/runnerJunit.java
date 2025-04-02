@@ -8,7 +8,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber-reports/Cucumber3.html"},
         features = "src/test/resources/com/features/Login.feature",
-        glue = "StrepDef"
-)
+        glue = "StrepDef",
+        tags=("@ValidCredentials"))
+
 public class runnerJunit {
 }

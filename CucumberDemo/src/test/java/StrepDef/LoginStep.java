@@ -7,17 +7,31 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+
+import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 public class LoginStep {
     WebDriver driver;
-
+@Before
+public void setup(){
+	System.out.println("Before execution");
+	 driver = new ChromeDriver();
+ 	driver.manage().window().maximize();
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	
+}
+@BeforeStep
+public void beforestep() {
+	System.out.println("Before Step Execution");
+}
     @Given("I am in the Login Page")
     public void i_am_in_the_swag_labs_login_page() {
-      driver = new ChromeDriver();
-        	driver.manage().window().maximize();
-       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+     
        	 driver.get("https://www.saucedemo.com/");
     }
   @When("user provides a valid user id")
@@ -59,6 +73,18 @@ public class LoginStep {
     public void i_should_see_the_error_message() {
         WebElement error = driver.findElement(By.xpath("//h3[@data-test='error']"));
         Assert.assertTrue(error.isDisplayed(), "Error message not displayed");
-        driver.quit();
+        
     }
+@AfterStep
+public void afterstep() {
+	System.out.println("After Step Execution");
+}
+@After
+public void teardown() {
+	System.out.println("After execution");
+	driver.quit();
+}
+
+
+
 }
