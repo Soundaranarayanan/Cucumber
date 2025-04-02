@@ -20,7 +20,7 @@ Feature: SauceDemo Login Feature
     And the user clicks the login button
     Then the user is able to visible the error message
 
-  @EdgeBrowser
+  @FireFoxBrowser
   @InValidCredentialsWithBlankPassword
   Scenario: To test Login features with blank password
     When the user provides the valid username
@@ -28,7 +28,7 @@ Feature: SauceDemo Login Feature
     And the user clicks the login button
     Then the user is able to visible the error message
 
-  @EdgeBrowser
+  @FireFoxBrowser
   @InValidCredentials @Regression
   Scenario: To test Login features with invalid username and password
     When the user provides the invalid username

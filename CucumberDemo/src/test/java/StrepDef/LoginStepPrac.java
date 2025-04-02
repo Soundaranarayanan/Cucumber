@@ -24,13 +24,7 @@ public class LoginStepPrac {
         driver = new FirefoxDriver();
     }
 
-    @Before("@EdgeBrowser")
-    public void setUpEdge() {
-        EdgeOptions options = new EdgeOptions();
-        options.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
-        options.addArguments("--headless=new");
-        driver = new EdgeDriver(options);
-    }
+    
 
     @After
     public void tearDown() {
